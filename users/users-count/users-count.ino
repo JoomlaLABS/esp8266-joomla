@@ -23,11 +23,11 @@ const int httpsPort = 443;
 
 // Use web browser to view and copy
 // SHA1 fingerprint of the certificate
-const char fingerprint[] PROGMEM = FINGERPRINT; //j4.jugmi.it
+const char fingerprint[] PROGMEM = FINGERPRINT;
 
 void setup() {
   
-  Serial.begin(9600);
+  Serial.begin(115200);
   delay(5000);
   printJoomlaHead();
 
@@ -169,25 +169,8 @@ void loop() {
           }
 
           // Print the body response
-          serializeJsonPretty(doc, Serial);  //<----- ERROR
-
-          
-          /*
-          JsonArray arr = doc.as<JsonArray>();
-          for (JsonVariant value : arr) {
-            Serial.println(value.as<char*>());
-          }
-          */
-          /*String bodyResponse = doc.as<String>();
-          int idx = 0;
-          while(bodyResponse[idx] != '\0')
-          {
-           Serial.print(bodyResponse[idx]);
-           idx++;
-          }
+          serializeJsonPretty(doc, Serial);
           Serial.println();
-          */
-          //Serial.println("body response - body response - body response - body response");
     
           //Extract users info
           linksSelf     = doc["links"]["self"].as<String>();
@@ -196,12 +179,6 @@ void loop() {
           linksLast     = doc["links"]["last"].as<String>();
           totalPages    = doc["meta"]["total-pages"];
           usersInPage   = doc["data"].as<JsonArray>().size();
-          Serial.println("linksSelf: "      + linksSelf);
-          Serial.println("linksPrevious: "  + linksPrevious);
-          Serial.println("linksNext: "      + linksNext);
-          Serial.println("linksLast: "      + linksLast);
-          Serial.println("totalPages: "     + String(totalPages));
-          Serial.println("usersInPage: "    + String(usersInPage));
 
           url = linksNext.substring(linksNext.indexOf(baseUrl));
           
