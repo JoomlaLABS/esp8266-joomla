@@ -6,7 +6,6 @@
 #include <WiFiClientSecure.h>
 #include <rBase64.h>
 #include <ArduinoJson.h>
-//#include <StreamUtils.h>
 
 #include "joomla.h"
 #include "arduino_secrets.h"
@@ -201,14 +200,21 @@ void loop() {
         && !(totalPages != 1 && linksPrevious != "null" && linksNext == "null" && linksLast == "null") // This is the last page
          );
 
-  Serial.println("Total Joomla users for " + String(host) + ": " + String(totalJoomlaUsers));
+  Serial.println("==============================");
   Serial.println();
+  Serial.println("   ~~~   Total Joomla users for " + String(host) + ": " + String(totalJoomlaUsers) + "   ~~~");
+  Serial.println();
+  Serial.println("==============================");
 
   // Wait
   int minutes = 1;
-  Serial.println(">> Wait " + String(minutes) + " minutes");
+  Serial.println("[Waiting " + String(minutes) + " minutes]");
+  for(int i = 0; i <= minutes * 60; i++) {
+    Serial.print(".");
+    delay(1000);
+  }
+  Serial.println();
   Serial.println("==============================");
-  delay(minutes*60*1000);
 }
 
 
