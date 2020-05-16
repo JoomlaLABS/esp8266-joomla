@@ -14,3 +14,4 @@ We tested this exaples with NodeMCU 1.0
 * [WiFiClientSecure](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/client-secure-class.html)
 * [rBase64](https://github.com/boseji/rBASE64)
 * [ArduinoJson](https://arduinojson.org/)
+* [DHTesp](https://github.com/beegee-tokyo/DHTesp)
