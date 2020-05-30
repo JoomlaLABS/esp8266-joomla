@@ -15,3 +15,4 @@ We tested this exaples with NodeMCU 1.0
 * [rBase64](https://github.com/boseji/rBASE64)
 * [ArduinoJson](https://arduinojson.org/)
 * [DHTesp](https://github.com/beegee-tokyo/DHTesp)
+* [NTPClient](https://github.com/arduino-libraries/NTPClient)
